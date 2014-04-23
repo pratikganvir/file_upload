@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: authorizations
+#
+#  id         :integer          not null, primary key
+#  provider   :string(255)
+#  uid        :string(255)
+#  user_id    :integer
+#  token      :string(255)
+#  secret     :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class Authorization < ActiveRecord::Base
 	belongs_to :user
 
@@ -13,7 +27,6 @@ class Authorization < ActiveRecord::Base
 	def fetch_details_from_facebook
 		graph = Koala::Facebook::API.new(self.token)
 		facebook_data = graph.get_object("me")
-		self.username = facebook_data['username']
 		self.save
 	end
 
@@ -21,16 +34,4 @@ class Authorization < ActiveRecord::Base
 
 	end
 
-
-	def fetch_details_from_github
-	end
-
-
-	def fetch_details_from_linkedin
-
-	end
-
-	def fetch_details_from_google_oauth2
-
-	end
 end

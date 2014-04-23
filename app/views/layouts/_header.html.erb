@@ -1,0 +1,19 @@
+<div class="navbar-header">
+  <a href="../" class="navbar-brand">Blue Music</a>
+</div>
+<ul class="nav navbar-nav navbar-right">
+  <% if user_signed_in? %>
+    <li>
+      <%= link_to current_user.name, current_user %>
+    </li>
+    <li>
+      <%= link_to "Logout", destroy_user_session_path %>
+    </li>
+  <% else %>
+    <li>
+      <%= link_to "Sign in", new_user_session_path %>
+    </li>
+  <% end %>
+
+</ul>
+<div style="height:20px;"> <%= render "layouts/flash_message" %></div>

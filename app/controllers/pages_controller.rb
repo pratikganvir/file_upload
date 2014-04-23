@@ -6,5 +6,6 @@ class PagesController < ApplicationController
   end
 
   def landing
+    redirect_to "/add_email?id=#{current_user.id}" and return if current_user && ! current_user.email?
   end
 end

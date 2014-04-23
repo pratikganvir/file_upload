@@ -1,9 +1,16 @@
+<br/><br/>
 <p id="notice"><%= notice %></p>
 
 <p>
   <strong>Name:</strong>
-	  <%= (image_tag @user.image_url(:thumb).to_s) %>
+<%#= (image_tag @user.image_url(:thumb).to_s) %>
   <%= @user.name %>
+</p>
+
+<p>
+  <strong>Age Range:</strong>
+<%#= (image_tag @user.image_url(:thumb).to_s) %>
+  <%= @user.age_range if @user.age_range? %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %>

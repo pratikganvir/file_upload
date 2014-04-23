@@ -2,14 +2,18 @@
 
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-horizontal' }) do |f| %>
   <div class="form-inputs">
-    <%= f.input :email, :required => false, :autofocus => true %>
-    <%= f.input :password, :required => false %>
-    <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
+    <%= f.input :email, :required => false, :autofocus => true %><br/>
+    <%= f.input :password, :required => false %><br/>
+    <%= f.input :remember_me, :as => :boolean ,:label_html=>{style: "margin-right:90%;"} if devise_mapping.rememberable? %>
   </div>
 
   <div class="form-actions">
     <%= f.button :submit, "Sign in" %>
   </div>
+  <br/>
 <% end %>
-
+  <br/>
 <%= render "users/shared/links" %>
+<script>
+  $("#user_email").style("margin-left","28px");
+</script>

@@ -1,0 +1,9 @@
+<%= form_for @user , :url=>{:controller=>"users",:action=>"save_email"},:method=>"post" do |f| %>
+  <br/>
+  <div>
+    <%= f.hidden_field :id, :value=>@user.id %>
+    <%= f.label :email %>
+    <%= f.text_field :email , :value=> "" %>
+  </div>
+  <%= f.submit "Update Email" ,:class=>"button" %>
+<% end %>

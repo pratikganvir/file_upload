@@ -12,3 +12,6 @@
  *= require_tree .
  *= require twitter/bootstrap
  */
+ input, select{
+     display: block;
+ }
