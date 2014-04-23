@@ -7,13 +7,8 @@ SociaLoginRails::Application.routes.draw do
   get "pages/terms"
   get "pages/welcome"
   get "pages/landing"
-  devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" } do
-    get '/reset_password' => "passowrdusers#new", :as => :reset_password
-    get '/new_password' => "passwordusers#edit", :as => :new_password
-    post '/send_email' => 'passwordusers#create', :as => :create_password
-    put '/change' =>  'passwordusers#update', :as => :update_password
-  end
-  resources :users
+  devise_for :users, :controllers => {:passwords => "passwords",:omniauth_callbacks=> "omniauth_callbacks"}
+  resources :users,:only=> [:show, :edit, :update]
   root :to => 'pages#landing'
   ActiveAdmin.routes(self)
 end

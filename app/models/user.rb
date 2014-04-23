@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable, :omniauthable
-    
+
   validates_presence_of :email
   validate :password_complexity
   validate :name_valid_format
@@ -77,22 +77,22 @@ class User < ActiveRecord::Base
   end
 
 
-  #--
-  # Created By: Chaitali Khangar
-  # Purpose: To create new session
-  # Created On: 22/04/2014
-  #++
-
-  def self.new_with_session(params,session)
-    if session["devise.user_attributes"]
-      new(session["devise.user_attributes"],without_protection: true) do |user|
-        user.attributes = params
-        user.valid?
-      end
-    else
-      super
-    end
-  end
+#  #--
+#  # Created By: Chaitali Khangar
+#  # Purpose: To create new session
+#  # Created On: 22/04/2014
+#  #++
+#
+#  def self.new_with_session(params,session)
+#    if session["devise.user_attributes"]
+#      new(session["devise.user_attributes"],without_protection: true) do |user|
+#        user.attributes = params
+#        user.valid?
+#      end
+#    else
+#      super
+#    end
+#  end
 
 
   #--

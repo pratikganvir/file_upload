@@ -9,5 +9,7 @@ class CreateAuthorizations < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :authorizations, :user_id
   end
+
 end

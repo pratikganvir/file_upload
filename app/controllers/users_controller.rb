@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
-  before_filter :set_user, :only=> [:show, :edit, :update,:add_email] 
+  before_filter :set_user, :only=> [:show, :edit, :update,:add_email]
   before_filter :validate_authorization_for_user, :only=> [:edit, :update]
 
 
 
   def show
-    redirect_to "/add_email?id=#{current_user.id}" and return if @user.email.blank?
+    redirect_to "/add_email?id=#{current_user.id}" and return unless @user.email?
   end
 
 
@@ -32,11 +32,10 @@ class UsersController < ApplicationController
 
 
   def update
-    debugger
     if @user.update_attributes(user_params)
       redirect_to @user, :notice=> 'User was successfully updated.'
     else
-      render :action=> 'edit'
+      render 'edit'
     end
   end
 

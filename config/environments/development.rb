@@ -28,7 +28,6 @@ SociaLoginRails::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 
-  
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   config.action_mailer.delivery_method = :smtp
@@ -40,6 +39,5 @@ SociaLoginRails::Application.configure do
     :user_name            => 'developer.cipher',
     :password             => 'developercipher1',
     :authentication       => 'plain',
-    :enable_starttls_auto => true  }
-  
+    :enable_starttls_auto => true  } 
 end
