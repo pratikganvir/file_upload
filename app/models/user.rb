@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
 
   validates_presence_of :email
   validate :password_complexity
-  validate :name_valid_format
+  validate :name_valid_format , :if => :new_record?
   #  validates_format_of :name , :with=>/[\w]+([\s]+[\w]+){1}+/, :if =>  Proc.new { |model| !model.name.blank? }
   validates_presence_of :name
 

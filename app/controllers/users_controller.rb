@@ -22,7 +22,8 @@ class UsersController < ApplicationController
   #++
   def save_email
     @user = User.find(params[:user][:id])
-    if @user.update_attributes(:email=>params[:user][:email])
+    @user.email = params[:user][:email]
+    if @user.save(:validations => {:except => :name})
       redirect_to root_url, :notice=> 'User email was successfully updated.'
     else
       flash[:error] = @user.errors.full_messages.uniq.join("\n")
@@ -33,7 +34,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(user_params)
-      redirect_to @user, :notice=> 'User was successfully updated.'
+      redirect_to @user, :notice=> 'Profile successfully updated.'
     else
       render 'edit'
     end
