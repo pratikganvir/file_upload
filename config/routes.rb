@@ -1,5 +1,7 @@
 SociaLoginRails::Application.routes.draw do
 
+  resources :songs
+
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   match "/add_email" => "users#add_email" , :via=>"get"

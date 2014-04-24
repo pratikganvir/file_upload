@@ -51,6 +51,7 @@ gem 'rmagick'
 gem 'simple_form'
 gem 'pg'
 gem 'thin'
+gem "paperclip", "~> 4.1"
 
 group :development, :test do
   gem 'byebug'

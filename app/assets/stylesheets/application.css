@@ -15,3 +15,9 @@
  input, select{
      display: block;
  }
+abbr[title], abbr[data-original-title] {
+    border-bottom-color: #999999;
+    border-bottom-style: dotted;
+    border-bottom-width: 0;
+    cursor: help;
+}

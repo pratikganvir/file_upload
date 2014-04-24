@@ -18,11 +18,23 @@ class Authorization < ActiveRecord::Base
 	after_create :fetch_details
 
 
+  #--
+  # Created By: Chaitali Khangar
+  # Created On: 24/04/2014
+  # Purpose: To fetch details from provider
+  #++
 
 	def fetch_details
 		self.send("fetch_details_from_#{self.provider.downcase}")
 	end
 
+
+
+  #--
+  # Created By: Chaitali Khangar
+  # Created On: 24/04/2014
+  # Purpose: To fetch details from facebook
+  #++
 
 	def fetch_details_from_facebook
 		graph = Koala::Facebook::API.new(self.token)
@@ -30,6 +42,12 @@ class Authorization < ActiveRecord::Base
 		self.save
 	end
 
+
+  #--
+  # Created By: Chaitali Khangar
+  # Created On: 24/04/2014
+  # Purpose: To fetch details from twitter
+  #++
 	def fetch_details_from_twitter
 
 	end
