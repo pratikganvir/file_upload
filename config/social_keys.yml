@@ -1,0 +1,15 @@
+development:
+  facebook_key: "662872757106902"
+  facebook_secret: "4bcbf55f4f3a3efb8bd1c397f86b58c3"
+
+  twitter_key: "CUvmfa6FJTejcg9w39oOmAYXK"
+  twitter_secret: "DVAHOhQLYbmbgVGMCXDVIHz2kjIMRMzZ3Er65TuSzIoaRlizlY"
+
+
+production:
+  facebook_key: "662872757106902"
+  facebook_secret: "4bcbf55f4f3a3efb8bd1c397f86b58c3"
+
+  twitter_key: "CUvmfa6FJTejcg9w39oOmAYXK"
+  twitter_secret: "DVAHOhQLYbmbgVGMCXDVIHz2kjIMRMzZ3Er65TuSzIoaRlizlY"
+
