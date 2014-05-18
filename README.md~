@@ -1,4 +1,4 @@
-
+<<<<<<< HEAD
 # Devise + Facebook Login + Google Login + Twitter Login + Linkedin Login + Github Login
 Basic application with all the popular Social login System.
 
@@ -56,4 +56,9 @@ as the name is changed.
 DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
 
 You just DO WHAT THE FUCK YOU WANT TO.
+=======
+file_upload
+===========
 
+fileupload app
+>>>>>>> 719507b138bcb6190c0aae99bc5bcbb06a194541
