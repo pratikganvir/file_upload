@@ -2,11 +2,13 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
-
+gem 'simple_token_authentication'
 # Use sqlite3 as the database for Active Record
 gem 'mysql2'
 gem 'debugger'
 gem "rails_best_practices"
+gem 'countries'
+gem 'country_select'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 gem 'therubyracer'
@@ -32,7 +34,7 @@ gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
-
+gem "cancan"
 gem 'devise'
 gem 'bootstrap-sass-rails'
 gem 'carrierwave'
@@ -55,6 +57,7 @@ gem "paperclip", "~> 4.1"
 
 group :development, :test do
   gem 'byebug'
+  gem 'rails-footnotes', '>= 4.0.0', '<5'
   #gem 'annotate'
   #gem 'better_errors'
   #gem 'binding_of_caller'
@@ -76,7 +79,7 @@ group :development, :test do
   #gem 'railroady'
   #gem 'rails-footnotes', '>= 3.7.5.rc4'
   #gem 'rails_best_practices'
-  #gem 'reek'
+  gem 'reek'
   #gem 'request-log-analyzer'
   #gem 'rspec-rails' # https://github.com/rspec/rspec-rails
   #gem 'selenium-webdriver'

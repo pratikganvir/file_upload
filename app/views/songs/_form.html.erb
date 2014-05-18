@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :duration %><br>
-    <%= f.time_select :duration %>
+    <%= f.text_field :duration %>
   </div>
   <div class="field">
     <%= f.label :price %><br>
@@ -37,7 +37,7 @@
   </div>
   <div class="field">
     <%= f.label :country %><br>
-    <%= f.text_field :country %>
+    <%= f.country_select("country") %>
   </div>
   <div class="actions">
     <%= f.submit %>

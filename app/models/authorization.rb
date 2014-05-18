@@ -17,6 +17,7 @@ class Authorization < ActiveRecord::Base
 
 	after_create :fetch_details
 
+  validates_uniqueness_of :uid ,:message => "Please sign in with other account. This account belongs to other user."
 
   #--
   # Created By: Chaitali Khangar

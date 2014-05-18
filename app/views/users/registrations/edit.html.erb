@@ -1,9 +1,12 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Edit your profile</h2>
 
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= f.error_notification %>
-
+  <%#= f.error_notification %>
   <div class="form-inputs">
+
+    <%= f.input :name, :required => true, :autofocus => true %><br/>
+    <%= f.input :age_range, collection: User::AGE_OPTIONS, :selected => current_user_age_range(current_user) %><br/>
+
     <%= f.input :email, :required => true, :autofocus => true %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -20,8 +23,27 @@
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<!--<h3>Cancel my account</h3>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
+<p>Unhappy? <%#= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
+-->
 
+<% unless current_user.is_admin? %>
+  <div>
+    Connect Account
+    <br/><br/>
+
+
+    <% ['facebook', 'twitter'].each do |provider| %>
+
+      <% if current_user.authorizations.pluck(:provider).include?(provider.to_s) %>
+        <%= provider.to_s.titleize %> Connected
+      <% else %>
+        <%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path('user', provider) %>
+      <% end %>
+      <br/>
+    <% end %>
+
+  </div>
+<% end %>
 <%= link_to "Back", :back %>

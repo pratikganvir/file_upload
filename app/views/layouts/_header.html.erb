@@ -4,7 +4,19 @@
 <ul class="nav navbar-nav navbar-right">
   <% if user_signed_in? %>
     <li>
-      <%= link_to current_user.name, current_user %>
+      Welcome <%= current_user.name %>!
+    </li>
+     <li>
+      <%= link_to 'Manage User', users_path, :class => 'navbar-link' %>
+    </li>
+     <li>
+      <%= link_to 'Manage Admin', admin_users_path, :class => 'navbar-link' %>
+    </li>
+     <li>
+      <%= link_to 'Manage Music', songs_path, :class => 'navbar-link' %>
+    </li>
+    <li>
+      <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %>
     </li>
     <li>
       <%= link_to "Logout", destroy_user_session_path %>
