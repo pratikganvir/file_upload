@@ -1,10 +1,15 @@
 SociaLoginRails::Application.routes.draw do
 
+  namespace :admin do
+    resources :users
+    resources :admin_users
+  end
+
   resources :roles
 
   resources :songs
    
-  match "/admin_users" => "users#admin_users", :via=>[:get]
+  #match "/admin_users" => "users#admin_users", :via=>[:get]
   match "/add_email" => "users#add_email" , :via=>"get"
   match "/users/save_email"=> "users#save_email", :via=>"post"
   get "pages/terms"
