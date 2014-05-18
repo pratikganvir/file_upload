@@ -91,7 +91,6 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
     params.require(:user).permit(:name, :email, :password, :password_confirmation,:age_range)
   end
 
- 
 
 end
 

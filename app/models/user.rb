@@ -286,4 +286,14 @@ class User < ActiveRecord::Base
   def inactive_user?
     self.status == "Inactive"
   end
+
+  def set_admin_role
+    self.build_role(:role_name => "Admin")
+    self.save
+  end
+
+  def set_normal_user_role
+    self.build_role(:role_name => "User")
+    self.save
+  end
 end
