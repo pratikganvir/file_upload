@@ -1,6 +1,6 @@
 class SongsController < InheritedResources::Base
 
-  before_filter :find_song , :only=>[:edit,:show]
+  before_filter :find_song , :only=>[:edit,:show,:update]
 
   def index
     @songs= Song.all
@@ -32,10 +32,16 @@ class SongsController < InheritedResources::Base
     end
   end
 
+  def update
+    debugger
+    @song.update_attributes(allowed_params)
+    ""
+  end
+  
   protected
 
   def allowed_params
-    params.require(:song).permit(:artist_name,:title,:genere_name,:duration,:price,:country,:song_image,:song_file)
+    params.require(:song).permit(:id, :artist_name,:title,:genere_name,:duration,:price,:country,:song_image,:song_file)
   end
 
   def find_song
