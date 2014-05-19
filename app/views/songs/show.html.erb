@@ -45,5 +45,15 @@
   <%= @song.song_file %>
 </p>
 
+<p>
+
+<audio src="<%= @song.song_file.url %>" preload="auto" />
+</p>
 <%= link_to 'Edit', edit_song_path(@song) %> |
 <%= link_to 'Back', songs_path %>
+<script src="/audiojs/audio.min.js"></script>
+<script>
+  audiojs.events.ready(function() {
+    var as = audiojs.createAll();
+  });
+</script>
