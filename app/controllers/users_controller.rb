@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
   before_filter :set_user, :only=> [:show, :edit, :update,:add_email]
   before_filter :validate_authorization_for_user, :only=> [:edit, :update]
-
+  before_action :check_admin, except: [:add_email,:save_email]
 
 
   def admin_users
-     @users = User.get_admin_user
+    @users = User.get_admin_user
   end
 
   def index
@@ -60,5 +60,16 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :age_range)
+  end
+
+  def check_admin
+    if signed_in?
+      flash[:alert]=  'Only admins allowed!' unless current_user.is_admin?
+      redirect_to root_url
+    else
+      # or you can use the authenticate_user! devise provides to only allow signed_in users
+      flash[:alert]= 'Please sign in!'
+      redirect_to root_url
+    end
   end
 end

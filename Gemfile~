@@ -54,7 +54,7 @@ gem 'simple_form'
 gem 'pg'
 gem 'thin'
 gem "paperclip", "~> 4.1"
-
+gem "cocaine"
 group :development, :test do
   gem 'byebug'
   gem 'rails-footnotes', '>= 4.0.0', '<5'

@@ -28,6 +28,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
   # Created On: 5/05/2014
 	#--
 	def create
+
     (super and return)  if request.format.html?
 	  user = User.new(allow_registration_parameters)
 	  if user.save
