@@ -10,6 +10,8 @@
       <th>Price</th>
       <th>Played song</th>
       <th>Country</th>
+      <th>Song image</th>
+      <th>Song file</th>
       <th></th>
       <th></th>
       <th></th>
@@ -26,6 +28,8 @@
         <td><%= song.price %></td>
         <td><%= song.played_song %></td>
         <td><%= song.country %></td>
+        <td><%= song.song_image %></td>
+        <td><%= song.song_file %></td>
         <td><%= link_to 'Show', song %></td>
         <td><%= link_to 'Edit', edit_song_path(song) %></td>
         <td><%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></td>

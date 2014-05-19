@@ -35,5 +35,15 @@
   <%= @song.country %>
 </p>
 
+<p>
+  <strong>Song image:</strong>
+  <%= @song.song_image %>
+</p>
+
+<p>
+  <strong>Song file:</strong>
+  <%= @song.song_file %>
+</p>
+
 <%= link_to 'Edit', edit_song_path(@song) %> |
 <%= link_to 'Back', songs_path %>
