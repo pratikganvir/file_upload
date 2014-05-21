@@ -5,7 +5,7 @@
     <tr>
       <th>Artist name</th>
       <th>Title</th>
-      <th>Genere name</th>
+      <th>Genere</th>
       <th>Duration</th>
       <th>Price</th>
       <th>Played song</th>
@@ -23,7 +23,7 @@
       <tr>
         <td><%= song.artist_name %></td>
         <td><%= song.title %></td>
-        <td><%= song.genere_name %></td>
+        <td><%= Genre.get_song_type(song.genre_id) if song.genre_id? %></td>
         <td><%= song.duration %></td>
         <td><%= song.price %></td>
         <td><%= song.played_song %></td>

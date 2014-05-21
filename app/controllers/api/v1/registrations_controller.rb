@@ -32,7 +32,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
     (super and return)  if request.format.html?
 	  user = User.new(allow_registration_parameters)
 	  if user.save
-	    render :status => 201, :json => {:user => user , :token => user.authentication_token }
+	    render :json=> { :status => 201, :user => user , :token => user.authentication_token }
 	    return
 	  else
 	    warden.custom_failure!
@@ -62,17 +62,17 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
         if params["user"]["password"].present? &&
             params["user"]["password"] == params["user"]["password_confirmation"] &&
             params["user"]["password"] == params["user"]["current_password"]
-          render :status => 404, :json => {:message => ERROR_MESSAGE_FOR_PASSWORD} and return
+          render :json=> { :status => 404, :message => ERROR_MESSAGE_FOR_PASSWORD} and return
         end
         if @user.valid_password?(params[:user][:current_password])
-          @user.update_attributes(allow_registration_parameters) ? (render :status => 200, :json => {:user => @user, :message => "User details updated."}) :
-            (render :status => 404, :json => {:message => @user.errors.full_messages.join("<br/>").html_safe})      
+          @user.update_attributes(allow_registration_parameters) ? (render :json=> {:status => 200, :user => @user, :message => "User details updated."}) :
+            (render :json=> {:status => 404,:message => @user.errors.full_messages.join("<br/>").html_safe})
           return
         else
-          render :status => 404, :json => {:message => "Current password entered is wrong."}
+          render :json=> {:status => 404, :message => "Current password entered is wrong."}
         end
       else
-        render :status => 404, :json => {:message => "Invalid authentication token used."}
+        render :json=> {:status => 404, :message => "Invalid authentication token used."}
       end
 
     end

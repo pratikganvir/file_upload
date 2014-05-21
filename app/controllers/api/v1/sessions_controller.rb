@@ -26,7 +26,7 @@ class Api::V1::SessionsController < Devise::SessionsController
         flash[:alert] = I18n.t("devise.failure.already_authenticated")
         redirect_to after_sign_in_path_for(resource)
       else
-        render :status => 200, :json => {:user => resource , :token => resource.authentication_token , :message => I18n.t("devise.failure.already_authenticated")}
+        render :json=> { :status => 200, :user => resource , :token => resource.authentication_token , :message => I18n.t("devise.failure.already_authenticated")}
       end
     end
   end
@@ -119,7 +119,7 @@ class Api::V1::SessionsController < Devise::SessionsController
   def api_current_user
     user = User.where("authentication_token=?",params[:id])
     (user && user.first) ? (render :json => user.first) :
-      (render :status => 404, :json => {:message => "No current user with this token"})
+      (render :json=> { :status => 404, :message => "No current user with this token"})
   end
 
 

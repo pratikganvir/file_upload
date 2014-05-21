@@ -20,21 +20,33 @@ class Song < ActiveRecord::Base
     :message => 'file must be of filetype .mp3'
 
 
-  validates_presence_of :artist_name,:title,:genere_name,:duration,:price
+  validates_presence_of :artist_name,:title,:duration,:price
   
   validate :artist_name_valid_format
   validate :title_valid_format
-  validate :genere_name_valid_format
+ 
   validate :duration_format
   validate :price_format
+  belongs_to :genre
 
 
+
+  #--
+  # Created By: Chaitali khangar
+  # Created On: 21/05/2013
+  # Purpose: To validate artist name format
+  #++
   def artist_name_valid_format
     if artist_name.present? and not artist_name.match(/^(?:[^\W_]|\s)*$/)
       errors.add :artist_name , "must not contain any special characters."
     end
   end
 
+  #--
+  # Created By: Chaitali khangar
+  # Created On: 21/05/2013
+  # Purpose: To validate title format
+  #++
   def title_valid_format
     if title.present? and not title.match(/^(?:[^\W_]|\s)*$/)
       errors.add :title , "must not contain any special characters."
@@ -42,13 +54,11 @@ class Song < ActiveRecord::Base
   end
 
 
-  def genere_name_valid_format
-    if genere_name.present? and not genere_name.match(/^(?:[^\W_]|\s)*$/)
-      errors.add :genere_name , "must not contain any special characters."
-    end
-  end
-
-
+  #--
+  # Created By: Chaitali khangar
+  # Created On: 21/05/2013
+  # Purpose: To validate duration format
+  #++
   def duration_format
     if duration.present?
       begin
@@ -60,6 +70,11 @@ class Song < ActiveRecord::Base
   end
 
 
+  #--
+  # Created By: Chaitali khangar
+  # Created On: 21/05/2013
+  # Purpose: To validate price format
+  #++
   def price_format
     if price.present?
       begin
@@ -92,14 +107,22 @@ class Song < ActiveRecord::Base
   end
 
 
+  #--
+  # Created By: Chaitali khangar
+  # Created On: 21/05/2013
+  # Purpose: To cut song for 30 seconds
+  #++
   def self.cut_song_to_30_sec(input_file,file_name)
-    output_folder = "#{Rails.root}/assets/song/cut_songs/"
+    output_folder = "#{Rails.root}/public/assets/songs/cut_songs/"
     FileUtils.mkdir_p(output_folder) unless File.directory?(output_folder)
-    debugger
-    output_folder = "#{Rails.root}/assets/song/cut_songs/"
+    output_folder = "public/assets/songs/cut_songs/"
     if file_name.present?
       output_file = "#{output_folder}#{file_name}"
-      system("ffmpeg -t 30 copy -i #{input_file}  #{output_file} ")
+      begin
+        system("ffmpeg -t 30 -i #{input_file}  #{output_file} ")
+      rescue Exception => e
+        puts "******************#{e}***************"
+      end
     end
   end
 end

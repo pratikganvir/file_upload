@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <p>
   <strong>Artist name:</strong>
@@ -11,8 +11,8 @@
 </p>
 
 <p>
-  <strong>Genere name:</strong>
-  <%= @song.genere_name %>
+  <strong>Genere: </strong>
+  <%= Genre.get_song_type(@song.genre_id) if @song.genre_id? %>
 </p>
 
 <p>
@@ -46,8 +46,9 @@
 </p>
 
 <p>
+<!--<audio src="<%#= @song.song_file.url %>" preload="auto" /> -->
 
-<audio src="<%= @song.song_file.url %>" preload="auto" />
+<audio src="<%= @url %>" preload="auto" />
 </p>
 <%= link_to 'Edit', edit_song_path(@song) %> |
 <%= link_to 'Back', songs_path %>
