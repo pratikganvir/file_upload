@@ -175,8 +175,7 @@ class User < ActiveRecord::Base
   def self.from_omniauth(auth, current_user)
     authorization = Authorization.where(:provider => auth.provider, :uid => auth.uid.to_s)
     if authorization.first.present? && current_user
-      message = EXISTING_ACCOUNT if authorization.first.user_id != current_user.id
-      return message
+      current_user.errors.add_to_base(EXISTING_ACCOUNT) and return(current_user)
     end
     unless authorization.first.present?
       authorization = Authorization.new(:provider => auth.provider, :uid => auth.uid.to_s,:token=>auth.credentials.token)
@@ -187,12 +186,12 @@ class User < ActiveRecord::Base
           user.password = Devise.friendly_token[0,10]
           user.name = auth.info.name
           user.email = auth.info.email
+          user.skip_confirmation!
           auth.provider == "twitter" ?  user.save(:validate => false) :  user.skip_confirmation! && user.save
         end
         user.age_range =  (auth.provider== "facebook" && auth.extra.raw_info && auth.extra.raw_info.birthday.present?  ?  User.calculate_age_range(Date.strptime(auth.extra.raw_info.birthday,'%m/%d/%Y')) : nil)
         user.skip_confirmation!
         user.save!
-     
         authorization.user_id = user.id
         authorization.secret = auth.credentials.secret
         authorization.save
