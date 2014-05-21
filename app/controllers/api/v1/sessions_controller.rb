@@ -135,6 +135,7 @@ class Api::V1::SessionsController < Devise::SessionsController
       flash[:alert] = "Please add email address first"
       redirect_to :back and return
     end
+    debugger
     super and return if request.format.html?
     @user = User.find_by_authentication_token(params[:id])
     if @user.nil?
