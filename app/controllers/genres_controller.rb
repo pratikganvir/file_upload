@@ -2,30 +2,28 @@ class GenresController < InheritedResources::Base
   before_action :check_admin
   before_action :set_genre, only: [:show, :edit, :update, :destroy]
 
-  # GET /songs
-  # GET /songs.json
+
   def index
     @genres = Genre.all
   end
 
-  # GET /songs/1
-  # GET /songs/1.json
+
   def show
   end
 
-  # GET /songs/new
+
   def new
     @genre = Genre.new
   end
 
-  # GET /songs/1/edit
+
   def edit
   end
 
-  # POST /songs
-  # POST /songs.json
+
   def create
     @genre = Genre.new(genre_params)
+
     #    @song.set_mime_type(params[:song][:song_file])
     respond_to do |format|
       if @genre.save
@@ -38,8 +36,7 @@ class GenresController < InheritedResources::Base
     end
   end
 
-  # PATCH/PUT /songs/1
-  # PATCH/PUT /songs/1.json
+
   def update
     respond_to do |format|
       if @genre.update(genre_params)
@@ -52,8 +49,7 @@ class GenresController < InheritedResources::Base
     end
   end
 
-  # DELETE /songs/1
-  # DELETE /songs/1.json
+
   def destroy
     @genre.destroy
     respond_to do |format|
@@ -68,7 +64,7 @@ class GenresController < InheritedResources::Base
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_genre
-    @song = Genre.find(params[:id])
+    @genre = Genre.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

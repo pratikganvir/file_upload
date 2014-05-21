@@ -22,6 +22,7 @@
 #  unconfirmed_email      :string(255)
 #  authentication_token   :string(255)
 #  age_range              :string(255)
+#  status                 :string(255)      default("Inactive")
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl

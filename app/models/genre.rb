@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: genres
+#
+#  id         :integer          not null, primary key
+#  song_type  :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class Genre < ActiveRecord::Base
   validates_presence_of :song_type
   validate :song_type_valid_format
