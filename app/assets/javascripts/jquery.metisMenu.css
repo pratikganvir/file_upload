@@ -1,0 +1,21 @@
+
+.plus-minus {
+    float: right;
+}
+
+.fa.plus-minus:before {
+    content: "\f067";
+}
+
+.active > a > .fa.plus-minus:before {
+    content: "\f068";
+}
+
+#menu { font-size:14px; color:Blue; padding:10px;}
+#menu a{ font-size:14px; color:#c5c5c5;}
+#menu :hover{ font-size:14px; color:white; text-decoration:none;}
+#menu ul {padding:5px; line-height:22px;}
+#menu ul, li{/* padding:5px; */ line-height:30px; border-left:1px solid gray;}
+#menu ul, li a{/* padding:5px; */ line-height:30px;}
+#menu ul, li :hover{font-size: 12px; color:white; text-decoration:none;}
+

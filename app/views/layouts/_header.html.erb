@@ -6,15 +6,18 @@
     <li>
       Welcome <%= current_user.name %>!
     </li>
-     <li>
-      <%= link_to 'Manage User', admin_users_path, :class => 'navbar-link' %>
-    </li>
-     <li>
-      <%= link_to 'Manage Admin', admin_users_path, :class => 'navbar-link' %>
-    </li>
-     <li>
-      <%= link_to 'Manage Music', songs_path, :class => 'navbar-link' %>
-    </li>
+    <% if current_user && current_user.is_admin? %>
+      <li>
+        <%= link_to 'Manage User', admin_users_path, :class => 'navbar-link' %>
+      </li>
+
+      <li>
+        <%= link_to 'Manage Admin', admin_admin_users_path, :class => 'navbar-link' %>
+      </li>
+      <li>
+        <%= link_to 'Manage Music', songs_path, :class => 'navbar-link' %>
+      </li>
+    <% end %>
     <li>
       <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %>
     </li>

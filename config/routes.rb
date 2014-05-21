@@ -1,5 +1,6 @@
 SociaLoginRails::Application.routes.draw do
 
+  root :to => 'pages#landing'
   namespace :admin do
     resources :users
     resources :admin_users
@@ -18,7 +19,7 @@ SociaLoginRails::Application.routes.draw do
   match "/twitter" => 'pages#landing' ,:via=>"get"
   devise_for :users, :controllers => {:passwords => "passwords",:omniauth_callbacks=> "omniauth_callbacks",:sessions => "api/v1/sessions",:registrations=>"api/v1/registrations"}
  resources :users
-  root :to => 'pages#landing'
+  
 
 
   namespace :api do

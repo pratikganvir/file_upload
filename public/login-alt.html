@@ -1,0 +1,237 @@
+
+<!-- AUI Framework -->
+<!DOCTYPE html>
+    <html>
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Blue Music</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <!-- Favicons -->
+
+        <!--[if lt IE 9]>
+          <script src="assets/js/minified/core/html5shiv.min.js"></script>
+          <script src="assets/js/minified/core/respond.min.js"></script>
+        <![endif]-->
+
+        <!--[if lt IE 7]>
+        <link rel="stylesheet" type="text/css" href="assets/css/minified/icons-ie7.min.css">
+        <![endif]-->
+
+        <!-- BlueMusic CSS Core -->
+
+        <link rel="stylesheet" type="text/css" href="assets/css/minified/blue.min.css">
+
+        <!-- <link rel="stylesheet" type="text/css" href="../_assets/css/widgets/theme-switcher.css"> -->
+
+        <!-- Theme UI -->
+
+        <link id="layout-theme" rel="stylesheet" type="text/css" href="../_assets/themes/agileui/color-schemes/layouts/default.html">
+        <link id="elements-theme" rel="stylesheet" type="text/css" href="../_assets/themes/agileui/color-schemes/elements/default.html">
+
+        <link rel="stylesheet" type="text/css" href="../_assets/themes/agileui/responsive.html">
+        <link rel="stylesheet" type="text/css" href="../_assets/css/helpers/responsive-elements.html">
+
+        <!-- BlueMusic JS -->
+
+        <script type="text/javascript" src="assets/js/minified/aui-production.min.js"></script>
+
+        
+    </head>
+    <body style="background-image:url(assets/images/bg-login.jpg); background-repeat:repeat;">
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div id="login-page">
+            <div style="background-color:#1A3649; height:50px; width:100%;"></div>
+            <center><img src="assets/images/logo.png" width="10%" style="margin-top:20px;" /></center>
+        </div>
+
+        <div class="pad20A">
+            <div class="row">
+                <form action="index.html" class="col-md-4 center-margin form-vertical" method="">
+
+                    <div class="ui-dialog modal-dialog login-bg" id="login-form">
+                       
+                       <div class="row">
+                        <div class="col-md-6" style="margin-bottom:30px;">
+                            <div class="content-box pad5A" >
+                                    <div class="pad20A pad0B ui-dialog-content ui-widget-content">
+                                        <div class="infobox clearfix infobox-close-wrapper success-bg mrg20B">
+                                            <img src="assets/images/login-txt.png" width="90%" />
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-input col-md-10">
+                                                <div class="form-input-icon">
+                                                    <input class="radius-all-4" placeholder="Email address" type="text" name="" id="Text1">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-input col-md-10">
+                                                <div class="form-input-icon">
+                                                    <input class="radius-all-4" placeholder="Password" type="password" name="" id="Password1">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-row">
+                                            <div style="margin-top:10px;" class="form-checkbox-radio col-md-6">
+                                                <a href="#" class="toggle-switch" switch-target="#login-forgot" switch-parent="#login-form" title="Recover password">Forgot your password?</a>
+                                            </div>
+                                            <div class="form-checkbox-radio text-right col-md-6">
+                                        <button type="submit" class="btn large primary-bg text-transform-upr font-bold font-size-11 radius-all-4" id="Button1" title="Validate!">
+                                            <span class="button-content">
+                                                Login
+                                            </span>
+                                        </button>
+                                            </div>
+                                        </div>
+                                         <div class="form-row">
+                                        <div class="col-md-6">
+                                        <div class="ui-dialog-buttonpane">
+                                            <a href="javascript:;" class="btn large primary-bg">
+                                                <span class="button-content left">
+                                                    <i>Facebook</i>
+                                                </span>
+                                                <span style="background-color:#00599c;" class="glyph-icon icon-separator float-right">
+                                                    <i class="glyph-icon icon-caret-right"></i>
+                                                </span>
+                                            </a>
+                                        </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                        <div class="ui-dialog-buttonpane" style="float:right;">
+                                            <a href="javascript:;" class="btn large primary-bg">
+                                                <span class="button-content">
+                                                    <i>Twitter</i>
+                                                </span>
+                                                <span style="background-color:#00599c;" class="glyph-icon icon-separator float-right">
+                                                    <i class="glyph-icon icon-caret-right"></i>
+                                                </span>
+                                            </a>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    </div>
+                                   
+                            </div>
+                        </div>
+                        <div class="col-md-6" style="margin-bottom: 28px;">
+                            <div class="content-box pad5A">
+                                    <div class="pad20A pad0B ui-dialog-content ui-widget-content">
+                                        <div class="infobox clearfix infobox-close-wrapper success-bg mrg20B">
+                                            <img src="assets/images/reg-txt.png" width="90%" />
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-input col-md-10">
+                                                <div class="form-input-icon">
+                                                    <input class="radius-all-4" placeholder="Full Name" type="text" name="" id="Text3">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-input col-md-10">
+                                                <div class="form-input-icon">
+                                                    <input class="radius-all-4" placeholder="Email address" type="text" name="" id="Text2">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-input col-md-10">
+                                                <div class="form-input-icon">
+                                                    <input class="radius-all-4" placeholder="Password" type="password" name="" id="Password2">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-row">
+                                            <div style="margin-top:2px;" class="form-checkbox-radio col-md-6">
+                                                 <div class="ui-dialog-buttonpane left">
+                                            <a href="javascript:;" class="btn large primary-bg">
+                                                <span class="button-content" style="padding-right: 5px; padding-left:5px; ">
+                                                    <i>Select age</i>
+                                                </span>
+                                                <span style="background-color:#00599c;" class="glyph-icon icon-separator float-right">
+                                                    <i class="glyph-icon icon-caret-down"></i>
+                                                </span>
+                                            </a>
+                                        </div>
+                                           
+                                            </div>
+                                            <div class="form-checkbox-radio text-right col-md-6">
+                                        <button type="submit" class="btn large primary-bg text-transform-upr font-bold font-size-11 radius-all-4" id="Button2" title="Validate!">
+                                            <span class="button-content">
+                                                Submit
+                                            </span>
+                                        </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                            </div>
+                        </div>
+                    </div>
+                       
+                       
+                       
+                       
+                        
+                    </div>
+
+                    <div class="ui-dialog mrg15T hide" id="login-forgot" style="position: relative !important; color:#fff; background-color:rgba(255, 255, 255, 0.29);">
+                        <div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix">
+                            <span class="ui-dialog-title"><h4 style="color:#fff;">Recover password</h4></span>
+                        </div>
+                        <div class="pad20A ui-dialog-content ui-widget-content">
+                            <div class="form-row">
+                                <div class="form-label col-md-2">
+                                    <label for="">
+                                        <p>To reset your password, enter the email address you use to sign in to BlueMusic. </p>
+                                    </label>
+                                </div>
+                                <div class="form-input col-md-10">
+                                    <div class="form-input-icon">
+                                        <input placeholder="Email address" type="text" name="" id="">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="ui-dialog-buttonpane text-center">
+                            <button type="submit" class="btn large primary-bg radius-all-4" id="demo-form-valid" onclick="javascript:$(&apos;#demo-form&apos;).parsley( &apos;validate&apos; );" title="Validate!">
+                                <span class="button-content">
+                                    Recover Password
+                                </span>
+                            </button>
+                            <a href="javascript:;" switch-target="#login-form" switch-parent="#login-forgot" class="btn large transparent no-shadow toggle-switch font-bold font-size-11 radius-all-4" id="demo-form-valid" onclick="javascript:$(&apos;#demo-form&apos;).parsley( &apos;validate&apos; );" title="Validate!">
+                                <span class="button-content">
+                                    Cancel
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+
+                    
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        <div id="page-footer-wrapper" class="login-footer">
+            <div id="page-footer">
+        	    Copyright &copy; 2014 - BlueMusic
+            </div>
+        </div><!-- #page-footer-wrapper -->
+
+    </body>
+</html>

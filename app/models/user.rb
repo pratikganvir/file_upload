@@ -38,6 +38,9 @@ class User < ActiveRecord::Base
   has_many :authorizations, :dependent=>:destroy
   has_one :role, :dependent=>:destroy
 
+
+  after_save :create_role
+  
   acts_as_token_authenticatable
 
   AGE_OPTIONS = {
@@ -122,7 +125,7 @@ class User < ActiveRecord::Base
 
   def name_valid_format
     if name.present? and not name.match(/[\w]+([\s]+[\w]+){1}+/)
-      errors.add :name , "must be seperated by space."
+      errors.add :name , "must be seperated by space and should not contain any special characters."
     end
   end
 
@@ -157,6 +160,11 @@ class User < ActiveRecord::Base
   end
 
 
+  def create_role
+    role = Role.where(:user_id=>self.id)
+    role = role.first || (self.build_role && self.save)
+  end
+
   #--
   # Created By: Chaitali Khangar
   # Purpose: To create authorization by provider
@@ -178,11 +186,11 @@ class User < ActiveRecord::Base
           user.name = auth.info.name
           user.email = auth.info.email
           user.skip_confirmation!
-          auth.provider == "twitter" ?  user.save(:validate => false) :  user.save
+          auth.provider == "twitter" ?  user.save(:validate => false) :  user.skip_confirmation! && user.save
         end
-        user.age_range =  (auth.provider== "facebook" && auth.extra.raw_info && auth.extra.raw_info.birthday.present?  ?  calculate_age_range(Date.strptime(auth.extra.raw_info.birthday,'%m/%d/%Y')) : nil)
+        user.age_range =  (auth.provider== "facebook" && auth.extra.raw_info && auth.extra.raw_info.birthday.present?  ?  User.calculate_age_range(Date.strptime(auth.extra.raw_info.birthday,'%m/%d/%Y')) : nil)
         user.skip_confirmation!
-        user.save
+        user.save!
         authorization.user_id = user.id
         authorization.secret = auth.credentials.secret
         authorization.save

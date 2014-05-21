@@ -1,4 +1,5 @@
 class SongsController < ApplicationController
+  before_action :check_admin, only: [:new,:create,:edit,:update]
   before_action :set_song, only: [:show, :edit, :update, :destroy]
 
   # GET /songs
@@ -25,9 +26,12 @@ class SongsController < ApplicationController
   # POST /songs.json
   def create
     @song = Song.new(song_params)
-
+    @song.set_default_played_song
+#    @song.set_mime_type(params[:song][:song_file])
     respond_to do |format|
       if @song.save
+        debugger
+        Song.cut_song_to_30_sec(@song.song_file.url,@song.song_file_file_name)
         format.html { redirect_to @song, notice: 'Song was successfully created.' }
         format.json { render action: 'show', status: :created, location: @song }
       else
@@ -69,6 +73,19 @@ class SongsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def song_params
-      params.require(:song).permit(:artist_name, :title, :genere_name, :duration, :price, :played_song, :country, :song_image, :song_file)
+      params.require(:song).permit(:artist_name, :title, :genere_name, :duration, :price, :country, :song_image, :song_file)
+    end
+
+    def check_admin
+      if signed_in? 
+        unless current_user.is_admin?
+          flash[:alert]=  'Only admins allowed!' 
+          redirect_to root_url
+        end
+      else
+        # or you can use the authenticate_user! devise provides to only allow signed_in users
+        flash[:alert]= 'Please sign in!'
+        redirect_to root_url
+      end
     end
 end

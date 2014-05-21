@@ -1,12 +1,12 @@
-<%= form_for(@song) do |f| %>
+<%= form_for(@song,:multipart=>true) do |f| %>
   <% if @song.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@song.errors.count, "error") %> prohibited this song from being saved:</h2>
 
       <ul>
-      <% @song.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @song.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -32,12 +32,8 @@
     <%= f.text_field :price %>
   </div>
   <div class="field">
-    <%= f.label :played_song %><br>
-    <%= f.number_field :played_song %>
-  </div>
-  <div class="field">
     <%= f.label :country %><br>
-    <%= f.text_field :country %>
+    <%= f.country_select :country %>
   </div>
   <div class="field">
     <%= f.label :song_image %><br>
