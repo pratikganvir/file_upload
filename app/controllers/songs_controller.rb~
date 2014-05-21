@@ -30,8 +30,6 @@ class SongsController < ApplicationController
 #    @song.set_mime_type(params[:song][:song_file])
     respond_to do |format|
       if @song.save
-        debugger
-        Song.cut_song_to_30_sec(@song.song_file.url,@song.song_file_file_name)
         format.html { redirect_to @song, notice: 'Song was successfully created.' }
         format.json { render action: 'show', status: :created, location: @song }
       else

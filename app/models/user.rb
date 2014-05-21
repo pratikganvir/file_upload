@@ -125,7 +125,7 @@ class User < ActiveRecord::Base
 
   def name_valid_format
     if name.present? and not name.match(/[\w]+([\s]+[\w]+){1}+/)
-      errors.add :name , "must be seperated by space."
+      errors.add :name , "must be seperated by space and should not contain any special characters."
     end
   end
 
